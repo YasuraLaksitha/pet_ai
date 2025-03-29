@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import '../ScannerService.dart';
+import 'package:pet_ai/components/ElevatedButtonComponent.dart';
+import '../service/ScannerService.dart';
 
 class ScannerView extends StatefulWidget {
   const ScannerView({super.key});
@@ -131,24 +132,16 @@ class _ScannerViewState extends State<ScannerView> {
                   ],
                   Column(
                     children: [
-                      ElevatedButton.icon(
+                      ElevatedButtonComponent(
                         onPressed: _isLoading ? null : () => _handleScan(useCamera: false),
                         icon: const Icon(Icons.photo_library),
-                        label: const Text('Pick from Gallery'),
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: const Size(200, 50),
-                          backgroundColor: Colors.blue.shade700,
-                        ),
+                        buttonText: 'Pick from Gallery',
                       ),
                       const SizedBox(height: 15),
-                      ElevatedButton.icon(
+                      ElevatedButtonComponent(
                         onPressed: _isLoading ? null : () => _handleScan(useCamera: true),
                         icon: const Icon(Icons.camera_alt),
-                        label: const Text('Use Camera'),
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: const Size(200, 50),
-                          backgroundColor: Colors.blue.shade900,
-                        ),
+                        buttonText: 'Use Camera',
                       ),
                     ],
                   ),
